@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using TechWiz.Database;
 using TechWiz.Middleware;
