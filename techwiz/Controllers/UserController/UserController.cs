@@ -19,12 +19,12 @@ namespace TechWiz.Controllers
     }
 
     [HttpGet("{id}")]
-    public async Task<IActionResult> GetUser(uint id)
+    public async Task<IActionResult> GetUser(string id)
     {   
-      if (id <= 0)
-        return BadRequest(new InvalidFieldError("id"));
+      if (!uint.TryParse(id, out uint userId) || userId <= 0)
+        return BadRequest(new InvalidFieldError("Id"));
 
-      var user = await _userService.GetUserByIdAsync(id);
+      var user = await _userService.GetUserByIdAsync(userId);
       
       if (user == null)
         return NotFound(new NotFoundError(nameof(User)));

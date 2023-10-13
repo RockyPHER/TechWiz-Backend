@@ -19,4 +19,10 @@ namespace TechWiz.Errors
     {
         public BadRequestBodyError() : base("BaseRequestBodyError", "Corpo da solicitação inválido") {}
     }
+
+    public class ValidationError : BaseError
+    {
+        public ValidationError() : base("ValidationError", "Erro de validação") {}
+    }
+    
 }
