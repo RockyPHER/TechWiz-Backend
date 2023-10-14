@@ -3,7 +3,12 @@ using TechWiz.Models;
 
 namespace TechWiz.Database
 {
-    public class ApplicationDbContext : DbContext
+    public interface IApplicationDbContext
+    {
+        DbSet<User> Users{ get; set; }
+    }
+
+    public class ApplicationDbContext : DbContext, IApplicationDbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) {}
         public DbSet<User> Users { get; set; }

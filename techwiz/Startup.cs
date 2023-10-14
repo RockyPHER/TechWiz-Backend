@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using TechWiz.Database;
-using TechWiz.Filters;
 using TechWiz.Middleware;
 using TechWiz.Repositories;
 using TechWiz.Services;
@@ -18,10 +17,7 @@ namespace TechWiz
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers(options =>
-            {
-                options.Filters.Add(typeof(CustomModelStateValidationFilter));
-            });
+            services.AddControllers();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddDbContext<ApplicationDbContext>(options =>
@@ -37,6 +33,8 @@ namespace TechWiz
                 );
             });
         }
+
+        
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
