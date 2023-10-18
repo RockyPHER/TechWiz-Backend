@@ -13,6 +13,11 @@ namespace TechWiz.Database
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) {}
         public DbSet<User> Users { get; set; }
 
+        public Task<object?> FindAsync(int v)
+        {
+            throw new NotImplementedException();
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

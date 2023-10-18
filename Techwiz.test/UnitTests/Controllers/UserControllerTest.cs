@@ -3,6 +3,7 @@ using Moq;
 using TechWiz.Controllers;
 using TechWiz.Errors;
 using TechWiz.Models;
+using TechWiz.Repositories;
 using TechWiz.Services;
 using Xunit;
 
@@ -50,5 +51,6 @@ namespace TechWiz.Tests.ControllerTests
             var badRequestResult = Assert.IsType<BadRequestObjectResult>(result);
             var error = Assert.IsType<InvalidFieldError>(badRequestResult.Value);
             Assert.Equal("InvalidId", error.Error);
-    }
+        }
+
 }}
