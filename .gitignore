@@ -19,6 +19,10 @@ packages/
 /obj/
 /publish/
 
+# Ignore appsettings 
+.appsettings.json
+.appsettings.Development.json
+
 # Ignore user-specific files and settings
 .vscode/
 .vs/
