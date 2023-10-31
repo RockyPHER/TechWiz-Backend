@@ -32,6 +32,16 @@ namespace TechWiz
                     }
                 );
             });
+
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder =>
+                {
+                    builder.AllowAnyOrigin()
+                           .AllowAnyMethod()
+                           .AllowAnyHeader();
+                });
+            });
         }
 
         
@@ -52,6 +62,8 @@ namespace TechWiz
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseRouting();
+
+            app.UseCors();
 
             app.UseEndpoints(endpoints => 
             {
