@@ -32,6 +32,8 @@ namespace TechWiz.Database
                 entity.Property(e => e.Email).HasMaxLength(255).IsRequired();
                 entity.HasIndex(u => u.Email).IsUnique();
 
+                entity.Property(e => e.AboutMe).HasMaxLength(255);
+
                 entity.Property(e => e.PasswordHash).HasMaxLength(255).IsRequired();
 
                 entity.Property(e => e.CreatedAt).HasDefaultValueSql("NOW(6)").ValueGeneratedOnAdd();
