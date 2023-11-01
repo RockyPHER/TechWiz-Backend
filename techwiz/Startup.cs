@@ -20,6 +20,10 @@ namespace TechWiz
             services.AddControllers();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IUserRepository, UserRepository>();
+
+            services.AddScoped<ITechnologyService, TechnologyService>();
+            services.AddScoped<ITechnologyRepository, TechnologyRepository>();
+            
             services.AddDbContext<ApplicationDbContext>(options =>
             {
                 options.UseMySql(
